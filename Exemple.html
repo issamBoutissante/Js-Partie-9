@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Validation</title>
+  </head>
+  <style>
+    label {
+      display: inline-block;
+      min-width: 200px;
+    }
+  </style>
+  <body>
+    <h1>Validation des Formulaires en JS</h1>
+    <form>
+      <label for="prenom">Entrez votre prenom svp :</label>
+      <input type="text" name="prenom" id="prenom" maxlength="20" required />
+      <span id="missPrenom"></span><br />
+      <label for="mail">Entrez votre mail :</label>
+      <input type="email" name="mail" id="mail" required /><br />
+      <label for="tel">Numero de telephone :</label>
+      <input type="tel" name="tel" id="tel" required /><br />
+      <input type="button" value="Valider" id="bouton_envoi" />
+    </form>
+  </body>
+  <script>
+    var formValid = document.getElementById("bouton_envoi");
+    var prenom = document.getElementById("prenom");
+    var missPrenom = document.getElementById("missPrenom");
+    var prenomValid = /^[a-zA-Z][a-z]+([-'\s][a-zA-Z][a-z]+)?$/;
+    formValid.addEventListener("click", validation);
+    function validation(event) {
+      if (prenom.validity.valueMissing) {
+        event.preventDefault();
+        missPrenom.textContent = "Prenom manquant";
+        missPrenom.style.color = "red";
+      } else if (prenomValid.test(prenom.value) == false) {
+        event.preventDefault();
+        missPrenom.textContent = "Format incorrect";
+        missPrenom.style.color = "orange";
+      }
+    }
+  </script>
+</html>
