@@ -3,7 +3,7 @@ i want to add a text
 for practicoking regular 
 expressions
 i borned in ait zyad
-year 2000
+2000 year
 month 10
 day 08
 [ok] [lets go]

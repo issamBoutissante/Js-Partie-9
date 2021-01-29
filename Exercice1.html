@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exercice 1</title>
+  </head>
+  <style>
+    .valid {
+      background-color: rgba(0, 255, 34, 0.808);
+    }
+    .invalid {
+      background-color: rgba(255, 0, 0, 0.87);
+    }
+  </style>
+  <body>
+    <form>
+      <input type="email" id="email" onmouseup="checkEmail()" />
+      <input type="password" id="password" onmouseup="checkPassword()" />
+      <input type="button" value="valider" />
+    </form>
+  </body>
+  <script>
+    var email = document.getElementById("email");
+    var password = document.getElementById("password");
+    //creating regular expressions for our fields
+    var regexEmail = /^[-_.\w]+@[-_.\w]*\.[-_\w]{2,}$/;
+    var regexPassword = /(?=.*\d){6,8}/;
+    function checkEmail() {
+      if (regexEmail.test(email.value)) {
+        email.classList.remove("invalid");
+        email.classList.add("valid");
+      } else {
+        email.classList.remove("valid");
+        email.classList.add("invalid");
+      }
+    }
+    function checkPassword() {
+      if (regexpassword.test(password.value)) {
+        password.classList.remove("invalid");
+        password.classList.add("valid");
+      } else {
+        password.classList.remove("valid");
+        password.classList.add("invalid");
+      }
+    }
+  </script>
+</html>
