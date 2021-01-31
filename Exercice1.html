@@ -14,7 +14,8 @@
     document.getElementById("email").onkeyup = (e) =>
       validateRegex(/^[-._\w]+@[-._\w]*\.[_.\w]{2,}/, e.target);
     document.getElementById("password").onkeyup = (e) => {
-      validateRegex(/\w{6,8}(?=\d)/, e.target);
+      //  validateRegex(/(?=.*\d+)^\w{6,8}$/, e.target);
+      validateRegex(/^\w{6,8}(?<=.*\d)/, e.target);
     };
     function validateRegex(regex, text) {
       if (regex.test(text.value)) {
